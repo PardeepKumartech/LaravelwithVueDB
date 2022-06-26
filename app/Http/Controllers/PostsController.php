@@ -35,7 +35,7 @@ class PostsController extends Controller
         $post->upc = $request->input('upc');
         $post->productname = $request->input('productname');
         $post->sku = $request->input('sku');
-        $post->tax = $request->input('tax');
+        $post->tax =  $request->input('Price') * 0.03; // 3% tax
         $post->Price = $request->input('Price');
 
         if($request->file('image')) {
@@ -68,7 +68,7 @@ class PostsController extends Controller
         $post->productname = $request->input('productname');
         $post->sku = $request->input('sku');
         $post->Price = $request->input('Price');
-        $post->tax = $request->input('tax');
+        $post->tax = $request->input('tax') * 0.03;
 
         if($request->file('image')) {
             $post->image = $this->upload($request);
@@ -101,7 +101,6 @@ class PostsController extends Controller
             'productname' => 'required',
             'sku' => 'required',
             'Price' => 'required',
-            'tax' => 'required',
             
         ];
 

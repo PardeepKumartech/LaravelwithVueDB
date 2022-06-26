@@ -1,18 +1,36 @@
 <template>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <inertia-link :href="$route('post.index')" class="navbar-brand">Vue Crud Product</inertia-link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <inertia-link :href="$route('post.index')" class="navbar-brand"
+                >Vue Crud Product</inertia-link
+            >
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <inertia-link :href="$route('post.index')" class="nav-link">Home</inertia-link>
+                        <inertia-link
+                            :href="$route('post.index')"
+                            class="nav-link"
+                            >Home</inertia-link
+                        >
                     </li>
                     <li class="nav-item">
-                        <inertia-link :href="$route('post.create')" class="nav-link">Create Product</inertia-link>
+                        <inertia-link
+                            :href="$route('post.create')"
+                            class="nav-link"
+                            >Create Product</inertia-link
+                        >
                     </li>
                 </ul>
             </div>
@@ -20,16 +38,32 @@
             <div class="navbar-collapse collapse order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item" v-if="!user">
-                        <inertia-link :href="$route('showLoginForm')" class="nav-link">Login</inertia-link>
+                        <inertia-link
+                            :href="$route('showLoginForm')"
+                            class="nav-link"
+                            >Login</inertia-link
+                        >
                     </li>
                     <li class="nav-item" v-if="!user">
-                        <inertia-link :href="$route('showRegisterForm')" class="nav-link">Register</inertia-link>
+                        <inertia-link
+                            :href="$route('showRegisterForm')"
+                            class="nav-link"
+                            >Register</inertia-link
+                        >
                     </li>
                     <li class="nav-item" v-if="user">
                         <span class="navbar-text" v-if="user">
-                            Logged in as {{user.name}}
+                            Logged in as {{ user.name }}
                         </span>
-                        <inertia-link :href="$route('logout')" as="button" method="post" class="nav-link logout-link" style="display: inline" type="button">Logout</inertia-link>
+                        <inertia-link
+                            :href="$route('logout')"
+                            as="button"
+                            method="post"
+                            class="nav-link logout-link"
+                            style="display: inline"
+                            type="button"
+                            >Logout</inertia-link
+                        >
                     </li>
                 </ul>
             </div>
@@ -38,8 +72,8 @@
 </template>
 
 <script>
-import {computed} from "vue";
-import {usePage} from "@inertiajs/inertia-vue3";
+import { computed } from "vue";
+import { usePage } from "@inertiajs/inertia-vue3";
 
 export default {
     name: "AppHeader",
@@ -47,8 +81,8 @@ export default {
         const user = computed(() => usePage().props.value.auth.user);
 
         return {
-            user
-        }
-    }
-}
+            user,
+        };
+    },
+};
 </script>
